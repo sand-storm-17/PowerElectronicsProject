@@ -10,9 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const port = 8000;
-
-const hostname = "127.0.0.1";
+const PORT = process.env.PORT || 8000;
 
 const password = "Ksandeep%4020";
 
@@ -32,6 +30,6 @@ db.once("open", function () {
 
 app.use(Router);
 
-app.listen(port, hostname, () => {
-  console.log(`server is runnnig at ${hostname}:${port}`);
+app.listen(PORT, () => {
+  console.log(`server is runnnig at port ${PORT}`);
 });
